@@ -1,0 +1,22 @@
+<h2>Calendario de Vacaciones 2025</h2>
+<region-selector-adv (value)="query.set($event)"></region-selector-adv>
+<upload-holidayweight (weights)="app_weights.set($event)" ></upload-holidayweight>
+<!-- <region-selector></region-selector> -->
+<!-- @if(holidaysResource.hasValue()){
+  <div>
+    <h3>Festivos en {{query()}}:</h3>
+    <ul>
+      @for (holiday of holidaysResource.value(); track holiday.date) {
+        <li>{{holiday.date}} - {{holiday.rule}} ({{holiday.name}})</li>
+      }
+    </ul>
+  </div>
+} -->
+  <weight-legend [items]="app_weights()"></weight-legend>
+<calendar-month [$weightColors]="app_weightColors()" [$weightsSignal]="app_weights()"></calendar-month>
+<p>Total de días de vacaciones seleccionados: <span id="totalVacationDays">0</span></p>
+
+<!-- <button onclick="saveSelection()">Guardar</button>
+<button onclick="clearSelection()">Limpiar</button> -->
+
+<router-outlet />
